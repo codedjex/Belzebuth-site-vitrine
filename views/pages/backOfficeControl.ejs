@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/styleBackOfficeE.css" type="text/css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <title>Back-Office Belzebuth bar</title>
+</head>
+<body>
+    <header>
+        <div class="containerboutton">
+            <a href="/backOffice">
+                <div id="button1" class="touche">Home</div>
+            </a>
+                <div id="button3" class="touche">Ajouter un admin</div>
+            
+        </div>
+    </header>
+    <h1>Bienvenue sur le Back-Office du bar le Belzebuth</h1>
+
+        <article id="Section1">
+            <div class="containerGeneral">
+                <div class="containerCategorie">
+                    <div class="Categorie1 Categorie" onclick="voir()">Email</div>
+                    <div class="Categorie2 Categorie" onclick="voir1()">Commentaire</div>
+                    <div class="Categorie3 Categorie" onclick="voir2()">Produit</div>
+                    <div class="Categorie4 Categorie" onclick="voir3()">Utilisateur</div>
+
+                </div>
+                <div class="containerContenu">
+                    <div class="contenu1 contenu">
+                        <div class="containerBlock">
+                            <div id="container1" class="div">
+                                <table>
+                                    <tr class="TitreTableau">
+                                        <td>Nom</td>
+                                        <td>Prénom</td>
+                                        <td>Mail</td>
+                                        <td>Message</td>
+                                        <td>Numéros de téléphone</td>
+                                        <td>Action</td>
+                                    </tr>
+                                    <div class="testdel"></div>
+                                        <% for(messagerie of messageries) {%>
+                                    <tr>
+                                        
+                                        <td><%= messagerie.Last_name %></td>
+                                        <td><%= messagerie.Name %></td>
+                                        <td><%= messagerie.E_mail %></td>
+                                        <td><%= messagerie.E_Message %></td>
+                                        <td><%= messagerie.Numeros %></td>
+                                        <td>
+                                            <button onclick="supprimerEmail('<%=messagerie.ID %>')" class="delete">Supprimer</button>
+                                            <button class="delete">Repondre</button>
+                                        </td>
+                                        <%}%>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenu2 contenu">
+                        <div class="containerBlock">
+                            <div id="container1" class="div">
+                                <table>
+                                    <tr class="TitreTableau">
+                                        <td>Nom</td>
+                                        <td>Prénom</td>
+                                        <td>Mail</td>
+                                        <td>Message</td>
+                                        <td>Action</td>
+                                    </tr>
+                                    <% for(comment of comments) {%>
+                                    <tr>
+                                        <td><%= comment.Nom %></td>
+                                        <td><%= comment.Prenom %></td>
+                                        <td><%= comment.Email %></td>
+                                        <td><%= comment.Message %></td>
+                                        <td>
+                                            <form action="/delete/commentaire/<%=comment.ID%>" method="post">
+                                                <input type="hidden" name="ID" value="<%= comment.ID %>">
+                                                <button type="submit" class="delete">Supprimer</button>
+                                            </form>
+                                            <button class="delete">Publier</button>
+                                        </td>
+                                        <%}%>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenu3 contenu">
+                        <div class="containerBlock">
+                            <div id="container1" class="div">
+                                <table>
+                                    <tr class="TitreTableau">
+                                        <td>Nom</td>
+                                        <td>Description</td>
+                                        <td>Gamme de produit</td>
+                                        
+                                    </tr>
+                                        <% for(product of products) {%>
+                                    <tr>
+                                        <td><%= product.Title %></td>
+                                        <td><%= product.Description %></td>
+                                        <td><%= product.Type %></td>
+                                        <td>
+                                            <form action="/delete/email/<%=product.ID%>" method="post">
+                                                <input type="hidden" name="ID" value="<%= product.ID %>">
+                                                <button type="submit" class="delete">Supprimer</button>
+                                            </form>
+                                            <button type="submit" class="delete">Modifier</button>
+
+                                        </td>
+                                        <%}%>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenu4 contenu">
+                        <div class="containerBlock">
+                            <div id="container1" class="div">
+                                <table>
+                                    <tr class="TitreTableau">
+                                        <td>USername</td>
+                                        <td>Email</td>
+                                        
+                                    </tr>
+                                        <% for(user of users) {%>
+                                    <tr>
+                                        <td><%= user.Username %></td>
+                                        <td><%= user.Email %></td>
+                                        <td>
+                                            <form action="/delete/email/<%=user.ID%>" method="post">
+                                                <input type="hidden" name="ID" value="<%= user.ID %>">
+                                                <button type="submit" class="delete">Supprimer</button>
+                                            </form>
+                                        </td>
+                                        <%}%>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+        <script src="../js/backOffice.js"></script>
+</body>
+</html>

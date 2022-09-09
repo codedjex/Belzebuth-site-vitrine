@@ -1,0 +1,138 @@
+@import 'ressources.css';
+nav{
+    width: 100vw;
+    height: 10vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    text-transform: uppercase;
+    font-family:'SourceSsTitre';
+    border-bottom: 1px solid;
+
+}
+.Logo
+{
+    height: 9vh;
+    width: auto;
+
+}
+article{
+    width: 100vw;
+    height: 70vh;
+
+    overflow: hidden;
+}
+
+article img{
+    position: relative;
+    width: 100%;
+    height: 120%;
+}
+h2{
+    text-transform: uppercase;
+    font-size: 150px;
+    font-family:'SourceTxt';
+
+    padding: 12vh;
+
+    position: absolute;
+    z-index: 2;
+    
+    left: 0;
+    
+    cursor: pointer;
+}
+.containerProduit{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.705);
+
+    visibility: hidden;
+}
+.open{
+    visibility: visible;
+}
+.containerProduit> p{
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+    padding: 15px;
+
+    font-size: 30px;
+    font-family: 'SourceTxt';
+}
+.BlockProduit{
+    display: flex;
+    flex-direction: row;
+    
+    width: 90vw;
+    height: 70vh;
+    margin: 15vh 5vw;
+
+    background: white;
+    color: black;
+}
+.block1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 20vw;
+    height: 100%;
+
+    border-right: 1px solid black;
+}
+.blockTitre >h4{
+    font-size: 35px;
+    font-family: 'SourceSsTitre';
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 7vh;
+    color: black;
+}
+.blockTitre >p{
+    padding: 5px;
+
+    font-size: 20px;
+    font-family: 'SourceTxt';
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-align: center;
+    color: black;
+
+}
+.block2{
+width: 70vw;
+height: 100%;
+
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-around;
+
+box-sizing: border-box;
+border: 2px solid black;
+}
+.blockListeProduit > h4{
+font-family: 'SourceSsTitre';
+font-weight: 600;
+text-align: center;
+border-bottom: 1px solid black;
+
+}
+.blockListeProduit > p{
+    padding: 15px;
+}
+

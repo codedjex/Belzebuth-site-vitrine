@@ -1,0 +1,48 @@
+@import 'ressources.css';
+h1{
+    width: 100vw;
+    text-align: center;
+    color: red;
+}
+
+#ContainerG{
+    width: 90vw;
+    height: 80vh;
+
+    margin: 10vh 5vw;
+}
+.containerboutton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    margin-bottom: 5vh;
+    font-family:'SourceTxt';
+
+    cursor: pointer;
+
+}
+.touche a{
+    width: calc(100%/4);
+    height: 6vh;
+
+    text-align: center;
+
+    padding: 20px;
+
+    cursor: pointer;
+}
+
+nav{
+    width: 100vw;
+    height: 90vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Titre';
+    font-size: 100px;
+
+}

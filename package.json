@@ -1,0 +1,26 @@
+{
+  "name": "dernier-projet-access-code-school",
+  "version": "1.0.0",
+  "description": "",
+  "main": "views/pages/index.ejs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "kill-port": "^2.0.1",
+    "mysql": "^2.18.1",
+    "pm2": "^5.2.0",
+    "util.promisify": "^1.1.1"
+  },
+  "devDependencies": {
+    "bcrypt": "^5.0.1",
+    "nodemon": "^2.0.19"
+  }
+}

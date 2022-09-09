@@ -1,0 +1,42 @@
+* {
+    color: inherit;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+
+    padding: 0;
+    margin: 0;
+}
+input{
+    color: black;
+}
+body {
+    background-color: #000;
+
+    min-width: 280px;
+    color: white;
+}
+/* titre */
+@font-face {
+    font-family: 'Titre';
+    src: url("../font/AlexBrush-Regular.ttf");
+}
+/* sous titre */
+@font-face {
+    font-family: 'SourceSsTitre';
+    src: url("../font/SourceSansPro-SemiBold.ttf");
+}
+/* texte */
+@font-face {
+    font-family: 'SourceTxt';
+    src: url('../font/SourceSansPro-ExtraLight.ttf');
+}
+@font-face {
+    font-family: 'Belzebuth';
+    src: url('../font/teutonic1.ttf');
+}

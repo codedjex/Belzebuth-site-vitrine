@@ -10,5 +10,13 @@ class Users{
         )  
       }
 
+
+  static deleteUser(content, callback){
+  connection.query('DELETE FROM user WHERE ID = ?',[content], (error, result)=>{
+    if (error) throw error;
+    callback(result)
+   
+})
+}
 }
 module.exports = Users

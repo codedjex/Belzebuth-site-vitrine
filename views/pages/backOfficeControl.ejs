@@ -8,15 +8,21 @@
 <body>
     <header>
         <div class="containerboutton">
-            <a href="/backOffice">
-                <div id="button1" class="touche">Home</div>
-            </a>
-                <div id="button3" class="touche">Ajouter un admin</div>
+            
+                <div id="button1" class="touche" ><a href="/backOffice">Home</a></div>
+
+                <div id="button4" class="touche" onclick="ajoutProduit()">Ajouter un produit</div>
+                <div id="button3" class="touche" >Ajouter un admin</div>
             
         </div>
     </header>
     <h1>Bienvenue sur le Back-Office du bar le Belzebuth</h1>
-
+    <% if (locals.flash && locals.flash.success){ %>
+        <div> <%= flash.success %> </div>
+        <% } %>
+    <% if (locals.flash && locals.flash.error){ %>
+        <div> <%= flash.error %> </div>
+        <% } %>
         <article id="Section1">
             <div class="containerGeneral">
                 <div class="containerCategorie">
@@ -41,15 +47,15 @@
                                     </tr>
                                     <div class="testdel"></div>
                                         <% for(messagerie of messageries) {%>
-                                    <tr>
+                                    <tr id="containerDonnees">
                                         
-                                        <td><%= messagerie.Last_name %></td>
-                                        <td><%= messagerie.Name %></td>
-                                        <td><%= messagerie.E_mail %></td>
-                                        <td><%= messagerie.E_Message %></td>
-                                        <td><%= messagerie.Numeros %></td>
-                                        <td>
-                                            <button onclick="supprimerEmail('<%=messagerie.ID %>')" class="delete">Supprimer</button>
+                                        <td class="<%= messagerie.ID %>" data-id="<%= messagerie.ID %>"><%= messagerie.Last_name %></td>
+                                        <td class="<%= messagerie.ID %>"><%= messagerie.Name %></td>
+                                        <td class="<%= messagerie.ID %>"><%= messagerie.E_mail %></td>
+                                        <td class="<%= messagerie.ID %>"><%= messagerie.E_Message %></td>
+                                        <td class="<%= messagerie.ID %>"><%= messagerie.Numeros %></td>
+                                        <td class="<%= messagerie.ID %>">
+                                            <button onclick="supprimerEmail(this, '<%= messagerie.ID %>')" class="delete" data-id="<%= messagerie.ID %>">Supprimer</button>
                                             <button class="delete">Repondre</button>
                                         </td>
                                         <%}%>
@@ -71,16 +77,15 @@
                                     </tr>
                                     <% for(comment of comments) {%>
                                     <tr>
+                                        <td><%= comment.ID %></td>
                                         <td><%= comment.Nom %></td>
                                         <td><%= comment.Prenom %></td>
                                         <td><%= comment.Email %></td>
                                         <td><%= comment.Message %></td>
                                         <td>
-                                            <form action="/delete/commentaire/<%=comment.ID%>" method="post">
-                                                <input type="hidden" name="ID" value="<%= comment.ID %>">
-                                                <button type="submit" class="delete">Supprimer</button>
-                                            </form>
-                                            <button class="delete">Publier</button>
+                                            <button onclick="supprimerCom(this, '<%= comment.ID %>')" class="delete" data-id="<%= comment.ID %>">Supprimer</button>
+                                            <input type="button" value="publier" onclick="remplirDonneesCommentaire('<%= comment.ID %>','<%= comment.Message %>','<%= comment.Email %>', '<%= comment.Nom %>', '<%= comment.Prenom %>', '<%= comment.valider %>' )">
+
                                         </td>
                                         <%}%>
                                     </tr>
@@ -104,13 +109,10 @@
                                         <td><%= product.Description %></td>
                                         <td><%= product.Type %></td>
                                         <td>
-                                            <form action="/delete/email/<%=product.ID%>" method="post">
-                                                <input type="hidden" name="ID" value="<%= product.ID %>">
-                                                <button type="submit" class="delete">Supprimer</button>
-                                            </form>
-                                            <button type="submit" class="delete">Modifier</button>
-
+                                            <button onclick="supprimerProduct(this, '<%= product.ID %>')" class="delete" data-id="<%= product.ID %>">Supprimer</button>
+                                            <input type="button" value="Modifier" onclick="remplirDonneesProduit('<%= product.ID %>','<%= product.Title %>','<%= product.Description %>', '<%=  product.Type %>' )">
                                         </td>
+                                       
                                         <%}%>
                                     </tr>
                                 </table>
@@ -122,7 +124,7 @@
                             <div id="container1" class="div">
                                 <table>
                                     <tr class="TitreTableau">
-                                        <td>USername</td>
+                                        <td>Username</td>
                                         <td>Email</td>
                                         
                                     </tr>
@@ -131,10 +133,7 @@
                                         <td><%= user.Username %></td>
                                         <td><%= user.Email %></td>
                                         <td>
-                                            <form action="/delete/email/<%=user.ID%>" method="post">
-                                                <input type="hidden" name="ID" value="<%= user.ID %>">
-                                                <button type="submit" class="delete">Supprimer</button>
-                                            </form>
+                                            <button onclick="supprimerUser(this, '<%= user.ID %>')" class="delete" data-id="<%= user.ID %>">Supprimer</button>
                                         </td>
                                         <%}%>
                                     </tr>
@@ -146,6 +145,62 @@
 
             </div>
         </article>
+        <nav class="BackgroundEditProduct">
+            <p onclick="rentrer()">X</p>
+            <form class="tableProduct" action="/backOffice/ModifProduct" method="post">
+                <input type="hidden" name="ID" id="ID">
+    
+                <label for="Title">Titre:</label>
+                <input type="text" name="Title" id="Title">
+                <label for="Description">Description:</label>
+                <input type="text" name="Description" id="Description">
+                <label for="Type">Type:</label>
+                <input type="text" name="Type" id="Type">
+    
+                <input class="btnProduct" type="submit" value="Modifier" onclick="">
+    
+            </form>
+        </nav>
+        <nav class="BackgroundAddProduct">
+            <p onclick="rentrerAjoutProduit()">X</p>
+            <form class="tableAjoutProduct" action="/backOffice/AddProduct" method="post">
+    
+                <label for="Title">Titre:</label>
+                <input type="text" name="Title" id="Title">
+                <label for="Description">Description:</label>
+                <input type="text" name="Description" id="Description">
+                <label for="Type">Type:</label>
+                <input type="text" name="Type" id="Type">
+                <label for="ID_Product">ID_Product:</label>
+                <select name="ID_Product" id="ID_Product">
+                    <nom>langue</nom>
+                    <libellé>ID_Produt correspond au type du produit ?</libellé>
+                    <option value="1">Wisky</option>
+                    <option value="2">Vodka</option>
+                    <option value="3">Rhum</option>
+                    <option value="4">Gin</option>
+                    <option value="5">Tequila</option>
+                    <option value="6">Bière</option>
+                    <option value="7">Vin</option>
+                    <option value="8">Little food</option>
+                </select>
+                <label for="image">Ïmage:</label>
+                <input type="text" name="Picture" id="Picture">
+    
+                <input class="btnProduct" type="submit" value="Ajouter" onclick="">
+    
+            </form>
+        </nav>
+        <nav class="BackgroundAddCom">
+            <p onclick="rentrerAjoutCom()">X</p>
+            <form class="tableAjoutCom" action="/backOffice/AddCom" method="post">
+                <p>Voulez-vous vraiment publier ce commentaire?</p>
+                <input type="hidden" name="ID" id="IDC">
+                <input type="hidden" name="valider" id="valider" value="1">
+                <input class="btnCom" type="submit" value="Publier" onclick="">
+    
+            </form>
+        </nav>
         <script src="../js/backOffice.js"></script>
 </body>
 </html>

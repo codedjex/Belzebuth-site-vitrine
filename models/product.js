@@ -17,7 +17,24 @@ class Produit{
         }
         )  
       }
+      static createProduit (content, callback){
+        connection.query('INSERT INTO product SET ?',[content], (err, result)=>{
+          if (err) throw err
+          // cb = callback
+          callback(result)
+        }
+        )  
+      }
+      static deleteProduct(content, callback){
+        connection.query('DELETE FROM product WHERE ID = ?',[content], (error, result)=>{
+          if (error) throw error;
+          callback(result)
+         
+  })
+  }
+  
 }
+
 
 module.exports = Produit
 // 

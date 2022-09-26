@@ -17,11 +17,20 @@ class Message{
         }
         )  
       }
-      static deleteCom(content){
+      static deleteCom(content, callback){
         connection.query('DELETE FROM comment WHERE ID = ?',[content], (error, result)=>{
           if (error) throw error;
+          callback(result)
          
   })
+  }
+  static validCom (callback){
+    connection.query('SELECT * FROM comment WHERE valider = 1', (err, rows)=>{
+      if (err) throw err
+      // cb = callback
+      callback(rows)
+    }
+    )  
   }
 }
 

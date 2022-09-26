@@ -16,17 +16,16 @@ h1{
 
     margin-bottom: 5vh;
     font-family:'SourceTxt';
-
 }
-.touche a{
-    width: calc(100%/3);
+.touche {
+    width: 33%;
     height: 6vh;
 
     text-align: center;
-
-    padding: 20px;
+padding: 5px;
 
     cursor: pointer;
+
 }
 .containerBlock{
     position: relative;
@@ -56,6 +55,7 @@ button{
 #Section1{
     width: 100vw;
     height: auto;
+
 
     display: flex;
     align-items: center;
@@ -91,6 +91,7 @@ button{
 }
 .containerContenu{
     width: 100%;
+    height: auto;
 
 }
 .contenu{
@@ -106,4 +107,173 @@ button{
 .open{
     visibility: visible;
 }
+
+.BackgroundEditProduct{
+    position: fixed;
+    top: 0%;
+    left: 0;
+
+    background-color: rgba(255, 255, 255, 0.489);
+
+    z-index: 4;
+
+    width: 100vw;
+    height: 100vh;
+    
+    transform: translateX(-100vw);
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.open1{
+    transform: translateX(0vw);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.BackgroundEditProduct p{
+    padding: 20px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+.tableProduct{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+
+    width: 50%;
+    height: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+    box-shadow: 0 20px 30px -10px black;
+
+    font-family: 'SourceTxt';
+    font-size: 25px;
+    letter-spacing: 20px;
+   
+}
+.tableProduct input{
+font-size: 20px;
+color: rgb(59, 59, 59);
+letter-spacing: 10px;
+}
+.BackgroundAddProduct{
+    position: fixed;
+    top: 0%;
+    left: 0;
+
+    background-color: rgba(255, 255, 255, 0.489);
+
+    z-index: 4;
+
+    width: 100vw;
+    height: 100vh;
+    
+    transform: translateX(-100vw);
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.BackgroundAddProduct p{
+    padding: 20px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+.tableAjoutProduct{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+
+    width: 50%;
+    height: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+    box-shadow: 0 20px 30px -10px black;
+
+    font-family: 'SourceTxt';
+    font-size: 25px;
+    letter-spacing: 20px;
+   
+}
+.tableAjoutProduct input{
+font-size: 20px;
+color: rgb(59, 59, 59);
+letter-spacing: 10px;
+}
+.btnProduct{
+    padding: 15px;
+    border-radius: 10px;
+}
+.BackgroundAddCom{
+    position: fixed;
+    top: 0%;
+    left: 0;
+
+    background-color: rgba(255, 255, 255, 0.489);
+
+    z-index: 4;
+
+    width: 100vw;
+    height: 100vh;
+    
+    transform: translateX(-100vw);
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.BackgroundAddCom p{
+    padding: 20px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+.tableAjoutCom{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+
+    width: 50%;
+    height: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+    box-shadow: 0 20px 30px -10px black;
+
+    font-family: 'SourceTxt';
+    font-size: 25px;
+    letter-spacing: 20px;
+   
+}
+.tableAjoutCom input{
+font-size: 20px;
+color: rgb(59, 59, 59);
+letter-spacing: 10px;
+}
+.btnCom{
+    padding: 15px;
+    border-radius: 10px;
+}
+.open1{
+    transform: translateX(0vw);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
 

@@ -51,8 +51,9 @@
                   <label for="E_Message">Message :</label>
                   <input type="test" id="msg" name="E_Message">
               </div>
-              <input id="boutonEmail" class="btnmail" type="submit" value="Envoyer">
+              <input onclick="sendEmail()" id="boutonEmail" class="btnmail" type="submit" value="Envoyer">
             </form> 
+            
         </div>
 
 <img id="imageTop" src="../img/fond-FirstSection (1).png"/>
@@ -152,7 +153,16 @@
             <% } %>
             <div class="Testrendu"></div>
     </div>
-    <div id="affichageCom"></div>
+    <div id="affichageCom">
+      <% for (comment of comments) {%>
+        <div class="affichageUnite">
+          <%= comment.Nom %>
+          <%= comment.Prenom %>
+          <%= comment.Message %>
+          <%= comment.created_at %>
+        </div>
+      <%}%>
+    </div>
   </article>
   <article class="containerConnexion">
     <form id="identification" method="post" action="/backOffice">

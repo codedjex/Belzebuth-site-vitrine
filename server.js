@@ -28,27 +28,6 @@ app
 }))
 .use(require('./middleware/flash'))
 
-// routes
-
-// app.get('/backOffice', (req, res, next)=>{
-// let user = req.session.user;
-// if(user){
-    
-//     res.render('pages/backOfficeEmail',{opp:req.session.opp, name: user.Username});
-//     return;
-// }
-// res.redirect('/');
-// }); 
-
-// app.get('/backOffice/commentaire', (request, response,) => {
-    
-//     let Message = require ('./models/message')
-//     Message.all(function (comment){
-//         response.render('pages/backOfficeCom',{comments: comment})
-      
-        
-//     }) 
-// })
 app.post('/', (request, response) =>{
 
     if(request.body == undefined || request.body ===''){
@@ -57,18 +36,13 @@ app.post('/', (request, response) =>{
     }else{
     let Message = require ('./models/message')
     Message.create(request.body, function(){
-        request.flash('success', "Merci !")
+        request.flash('success', "Merci pour votre commentaire tout gentil, tout kiki!")
         response.redirect('/')
         })
     }
 })
 
-// app.get('/backOffice/email', (request, response) => {
-//     let Email = require ('./models/email')
-//     Email.allMessage(function (messagerie){
-//         response.render('pages/backOfficeEmail',{messageries: messagerie})
-//     })
-// })
+
 
 app.post('/email', (request, response) =>{
 
@@ -78,42 +52,66 @@ app.post('/email', (request, response) =>{
     }else{
     let Email = require ('./models/email')
     Email.createMessage(request.body, function(){
-        request.flash('success', "Merci !")
+        request.flash('success', "Votre mail a bien était envoyé !")
         response.redirect('/')
         })
     }
 })
+app.post('/backOffice/AddProduct', (request, response) =>{
 
-// app.post('/delete/(:ID)', (request, response, next) => {
-
-//     let Email = require ('./models/email')
-//     Email.deleteMessage(request.params.ID);
-//     response.render('pages/index');
-      
-//     })
-app.post('/delete/commentaire/(:ID)', (request, response, next) => {
-
-    let Message = require ('./models/message')
-    Message.deleteCom(request.params.ID);
-    response.render('pages/backOffice');
-          
+    if(request.body == undefined){
+      request.flash('error',"Vous n'avez pas remplis correctement")
+    response.redirect('/')
+    }else{
+    let Produit = require ('./models/product')
+    Produit.createProduit(request.body, function(){
+        request.flash('success', "Votre produit a bien été ajouté!")
+        response.redirect('/backOffice/Control');
         })
+    }
+})
+
+
+app.post('/backOffice/delete',(request, response, next)=>{
+    let Message = require ('./models/message')
+    Message.deleteCom(request.body.com1, function (result){
+    response.send('suppression reussi');
+    });
+    })
 
 app.post('/backOffice/delete',(request, response, next)=>{
     let Email = require ('./models/email')
     Email.deleteMessage(request.body.Email1, function (result){
-    response.json(result);
+    response.send('suppression reussi');
     });
     })
+
+    app.post('/backOffice/delete',(request, response, next)=>{
+        let Users = require ('./models/email')
+        Users.deleteUser(request.body.user1, function (result){
+        response.send('suppression reussi');
+        });
+        })
+
+    app.post('/backOffice/delete',(request, response, next)=>{
+        let Produit = require ('./models/email')
+        Produit.deleteProduct(request.body.product1, function (result){
+        response.send('suppression reussi');
+        });
+        })
 
 
 app.get('/', (request, response) => {
     let ProduitType = require ('./models/type')
-    ProduitType.allProductType(function (type){
-    response.render('pages/index',{types: type})
+    ProduitType.allProductType(function (type)
+    {
+    let Message = require ('./models/message')
+    Message.validCom(function (comment)
+    {
+    response.render('pages/index',{types: type, comments: comment})
     
 })
-})
+    })})
 app.post('/backOffice', (req, res, next) => {
 
     user.loginUser(req.body.Username, req.body.Password, function(result) {
@@ -189,6 +187,36 @@ app.get('/backOffice/Control', (req, res, next)=>{
     })
 })})
 }})
-     
-
+app.post("/backOffice/ModifProduct", (req, res) => {
+    let id = req.body.ID === "" ? null : req.body.ID;
+    let titre = req.body.Title;
+    let description = req.body.Description;
+    let type = req.body.Type;
+  
+    let reqSql =
+      id === null
+        ? "INSERT INTO product(ID, Title, Description, Type) VALUES(?, ?, ?, ?)"
+        : "UPDATE product SET Title = ?, Description = ?, Type = ? WHERE ID = ?";
+  
+    let donnees =
+      id === null ? [null, titre, description, type] : [titre, description, type, id];
+    connection.query(reqSql, donnees, (error, result) => {
+        res.redirect('/backOffice/Control');
+        });
+    })
+    app.post("/backOffice/AddCom", (req, res) => {
+        let idC = req.body.ID === "" ? null : req.body.ID;
+        let validerC = req.body.valider;
+      
+        let reqSqlC =
+          idC === null
+            ? "INSERT INTO comment(ID, valider) VALUES(?, ?)"
+            : "UPDATE comment SET valider = ? WHERE ID = ?";
+      
+        let donneesC =
+          idC === null ? [null,validerC] : [validerC, idC];
+        connection.query(reqSqlC, donneesC, (error, result) => {
+            res.redirect('/backOffice/Control');
+            });
+        })
 app.listen(8000)

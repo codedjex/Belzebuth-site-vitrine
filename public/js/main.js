@@ -43,3 +43,18 @@ function connexion1(){
 function connexion2(){
     document.querySelector('.containerConnexion').classList.remove('open');
 }
+
+function sendEmail(){
+    if(window.confirm('Voulez-vous vraiment envoyer cet Email ?')){         
+
+        $.post(
+        '/email',
+        {field1:1, field2:2, field3:3, field4:4, field5:5},
+        function(data, status){
+            console.log(data)
+           
+        }
+    );
+    
+        }    
+}

@@ -32,12 +32,12 @@ app.post('/', (request, response) =>{
 
     if(request.body == undefined || request.body ===''){
       request.flash('error',"Vous n'avez pas remplis correctement")
-    response.redirect('/')
+    response.redirect('/index')
     }else{
     let Message = require ('./models/message')
     Message.create(request.body, function(){
         request.flash('success', "Merci pour votre commentaire tout gentil, tout kiki!")
-        response.redirect('/')
+        response.redirect('/index')
         })
     }
 })
@@ -48,12 +48,12 @@ app.post('/email', (request, response) =>{
 
     if(request.body == undefined){
       request.flash('error',"Vous n'avez pas remplis correctement")
-    response.redirect('/')
+    response.redirect('/index')
     }else{
     let Email = require ('./models/email')
     Email.createMessage(request.body, function(){
         request.flash('success', "Votre mail a bien était envoyé !")
-        response.redirect('/')
+        response.redirect('/index')
         })
     }
 })
@@ -101,14 +101,14 @@ app.post('/backOffice/delete',(request, response, next)=>{
         })
 
 
-app.get('/', (request, response) => {
+app.get('/index', (request, response) => {
     let ProduitType = require ('./models/type')
     ProduitType.allProductType(function (type)
     {
     let Message = require ('./models/message')
     Message.validCom(function (comment)
     {
-    response.render('pages/index',{types: type, comments: comment})
+    response.render('pages/index2',{types: type, comments: comment})
     
 })
     })})
@@ -165,6 +165,15 @@ app.post('/NosProduits/recuperer',(request, response, next)=>{
 app.get('/backOffice', (req, res, next)=>{
         res.render('pages/backOffice')
     })
+// app.get('/index', (req, res, next)=>{
+//         let ProduitType = require ('./models/type')
+//     ProduitType.allProductType(function (type)
+//     {
+//         res.render('pages/index2',{types: type})
+
+//     })
+// })
+
 
 app.get('/backOffice/Control', (req, res, next)=>{
         let user = req.session.user;

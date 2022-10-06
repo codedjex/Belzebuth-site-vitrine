@@ -16,27 +16,74 @@ input{
     color: black;
 }
 body {
-    background-color: #000;
+    background-color: rgb(19, 19, 19);
+
 
     min-width: 280px;
     color: white;
 }
-/* titre */
+
+h3{
+    font-family: 'h3';
+    font-size: 11vw; 
+    filter: drop-shadow(0 4px 8px black); 
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 10px;
+ 
+}
+h4{
+    text-align: center;
+    font-family:'SourceTxt';
+    font-size: 5vw;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: rgb(255, 0, 0);
+}
+h5{
+    text-align: center;
+    font-family:'SourceSsTitre';
+    font-size: 10vw;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 4px 8px black); 
+}
+.bouton{
+    width: 80%;
+ 
+    margin: 10px 0 10px 10%;
+    padding: 5px;
+ 
+    border-radius: 5px;
+    box-shadow: 0 20px 30px -10px black;
+    background-color: transparent;
+    color: white;
+    border: 1px solid;
+ 
+    font-family: 'SourceTxt';
+    letter-spacing: 3px;
+    font-weight: 600;
+ }
+.bouton:hover{
+    background-color: white;
+    color: black;
+}
+/* h1 */
 @font-face {
-    font-family: 'Titre';
-    src: url("../font/AlexBrush-Regular.ttf");
+    font-family: 'titreBelzebuth';
+    src: url('../font/Ravenholm-Inline-Demo.otf');
+}
+@font-face {
+    font-family: 'h3';
+    src: url("../font/Anton-Regular.ttf");
 }
 /* sous titre */
 @font-face {
     font-family: 'SourceSsTitre';
-    src: url("../font/SourceSansPro-SemiBold.ttf");
+    src: url("../font/Lobster-Regular.ttf");
 }
-/* texte */
+/* p */
 @font-face {
     font-family: 'SourceTxt';
     src: url('../font/SourceSansPro-ExtraLight.ttf');
 }
-@font-face {
-    font-family: 'Belzebuth';
-    src: url('../font/teutonic1.ttf');
-}
+

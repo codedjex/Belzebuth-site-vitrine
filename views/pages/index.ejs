@@ -51,7 +51,7 @@
                   <label for="E_Message">Message :</label>
                   <input type="test" id="msg" name="E_Message">
               </div>
-              <input onclick="sendEmail()" id="boutonEmail" class="btnmail" type="submit" value="Envoyer">
+              <input id="boutonEmail" class="btnmail" type="submit" value="Envoyer">
             </form> 
             
         </div>
@@ -68,7 +68,7 @@
       <div class="containerNodeProduct">
       <% for(type of types) {%>
         <div class="nodeProduct">
-        <%= type.Type %>
+         <%= type.Type %>
         </div>
       <%}%>
       </div>
@@ -156,10 +156,14 @@
     <div id="affichageCom">
       <% for (comment of comments) {%>
         <div class="affichageUnite">
+          <div class="identifiant">
           <%= comment.Nom %>
           <%= comment.Prenom %>
-          <%= comment.Message %>
-          <%= comment.created_at %>
+        </div>
+          <div class="message"><%= comment.Message %></div>
+          
+          <div class="date"><%= comment.created_at %></div>
+          
         </div>
       <%}%>
     </div>

@@ -43,6 +43,11 @@ function connexion1(){
 function connexion2(){
     document.querySelector('.containerConnexion').classList.remove('open');
 }
+function descente(){
+    document.querySelector('.Menu').classList.toggle('descente')
+    document.querySelector('.menuBurger').classList.toggle('descente1')
+
+}
 
 function sendEmail(){
     if(window.confirm('Voulez-vous vraiment envoyer cet Email ?')){         

@@ -1,4 +1,6 @@
+
 @import 'ressources.css';
+
 h1{
     width: 100vw;
     text-align: center;
@@ -45,4 +47,9 @@ nav{
     font-family: 'Titre';
     font-size: 100px;
 
+}
+@media screen and (max-width:320px){
+    h1{
+        color: aliceblue;
+    }
 }

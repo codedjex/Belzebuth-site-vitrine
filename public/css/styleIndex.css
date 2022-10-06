@@ -39,6 +39,9 @@ background-color: rgba(0, 0, 0, 0);
     color: red;
 
 }
+.menuBurger, .Menu{
+    display: none;
+}
 #FirstSection, #TrdSection{
     width: 100vw;
     height: 100vh;
@@ -76,8 +79,8 @@ align-items: center;
 
 }
 #textTitle h1{
-    font-family: 'Belzebuth';
-    font-size: 300px;
+    font-family:'titreBelzebuth';
+    font-size: 23vw;
     background: -webkit-linear-gradient(#eee 15%,rgb(255, 0, 0) 50%, rgb(0, 0, 0));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -92,11 +95,7 @@ align-items: center;
     letter-spacing: 20px;
     text-transform: uppercase;
 }
-@media screen and (max-width: 1300px){
-#textTitle h1{
-    font-size: 200px;
-}
-}
+
 .fa-brands, .fa-solid{
     color: red;
     font-size: 50px;
@@ -276,7 +275,7 @@ color:white;
 }
 .TitleProduct{
     font-family:'SourceSsTitre' ;
-    font-size: 70px;
+    font-size: 10vw;
     color: rgb(255, 0, 0);
     letter-spacing: 15px;
 
@@ -296,7 +295,7 @@ color:white;
 .nodeProduct{
 
     font-family:'SourceTxt';
-    font-size: 60px;
+font-size: 5vmin;
     letter-spacing: 15px;
     text-transform: uppercase;
     text-align: center;
@@ -304,7 +303,7 @@ color:white;
     background-color: black;
     box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
 
-    width: 20vw;
+    width: auto;
 
     margin: 0 20px 20px 20px;
 }
@@ -427,18 +426,6 @@ background-color: black;
 .produitMoment p{
     padding-bottom: -5px;
 }
-
-@media screen and (max-width: 1203px){
-    .Texte1{
-        display: none;
-    }
-    .nodeProduct{
-        font-size: 45px;
-    }  
-    }
-
-
-
 .containerCom{
     width: 100vw;
     height: 60vh;
@@ -486,6 +473,36 @@ background-color: black;
     margin-left: 20px;
 
 }
+.affichageUnite{
+    width: 100%;
+    height: 10vh;
+    margin: 10px;
+
+    background-color: white;
+    border-radius: 20px;
+    color: black;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.identifiant{
+    font-family: 'SourceTxt';
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+.message{
+    font-family: 'SourceTxt';
+    font-size: 15px;
+    letter-spacing: 3px;
+    font-weight: 600;
+
+}
+
 .btncom{
     width: 5vw;
 }
@@ -581,4 +598,127 @@ footer p{
 }
 footer span{
     text-transform: uppercase;
+}
+
+@media screen and (max-width: 1300px){
+    #textTitle h1{
+        font-size: 200px;
+    }
+}
+
+@media screen and (max-width: 1203px){
+    .Texte1{
+        display: none;
+    }
+    
+}
+@media screen and (max-width: 700px){
+    #navbar{
+        display: none;
+    }
+        .menuBurger{
+        display: block;
+        position: fixed;
+        top: 0%;
+        left: 45vw;
+        z-index: 40;
+
+        padding: 0px 15px;
+
+        background-color: rgba(0, 0, 0, 0.576);
+        font-size: 20px;
+        font-weight: 100;
+        border-radius: 0 0 5px 5px;
+        transition: all 0.5s;
+
+
+    }
+    .fa-solid{
+        color: rgba(255, 0, 0, 0.478);
+    }
+    .Menu{
+        display: block;
+        position: fixed;
+        top: 0%;
+        z-index: 40;
+        
+        width: 100vw;
+        height: 40vh;
+
+        color: rgb(255, 255, 255);
+        background-color: rgba(0, 0, 0, 0.676);
+        font-size: 20px;
+        font-family: 'SourceTxt';
+
+        transform: translateY(-40vh);
+        transition: all 0.5s;
+
+
+    }
+    .Menu ul{
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .Menu li:hover{
+        transform: scale(1.01);
+    }
+    .descente{
+        transform: translateY(0vh);
+        transition: all 0.5s;
+
+    }
+    .descente1{
+        transform: translateY(40vh);
+        transition: all 0.5s;
+
+    }
+    
+     
+}
+@media screen and (max-width: 360px){
+    #SndSection{
+        background: rgb(255,0,0);
+        background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(140,3,3,1) 26%, rgba(0,0,0,1) 100%);
+    }
+.containerPhoto{
+    display: none;
+}
+.containerProduit{
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0;
+    background-image: black;
+
+    
+}
+.TitleProduct{
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+}
+.containerNodeProduct{
+    padding: 0%;
+    background-color: black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.nodeProduct{
+margin-left: 1%;
+    width: 98%;
+    height: auto;
+}
+.nodeProduct:last-child{
+    margin-left: 1%;
+
+    width: 98%;
+}
 }

@@ -1,119 +1,144 @@
 <%- include('header2'); %>
-<section id="stSection">
+  <section id="stSection">
     <div class="titleStSection">
-        <h1>Belzebuth</h1>
-        <h2>Piano Bar/Pub</h2>
-        <h4>NEVERS - Depuis 2015</h4>
-      </div>
-</section>
-<section id="ndSection">
-    <div class="wrapperProduct">
-        <h3> Nos Produits</h3>
-        <div class="wrapperTypeProduct">
-                <% for(type of types) {%>
-                    <div class="Photo <%= type.Type %>" name="Photo">
-                        <%= type.Type %>
-                    </div>
-                <%}%>
-        </div>
+      <h1>Belzebuth</h1>
+      <h2>Piano Bar/Pub</h2>
+      <h4>NEVERS - Depuis 2015</h4>
     </div>
-</section>
-<section id="rdSection">
+  </section>
+  <section id="ndSection">
+    <div class="wrapperProductShort">
+      <h3> Nos Produits</h3>
+      <div class="wrapperTypeProductShort">
+        <% for(type of types) {%>
+          <div class="typeProductShort <%= type.Type %>" name="Photo">
+            <a href="/NosProduits#<%= type.Type %>">
+              <%= type.Type %>
+            </a>
+          </div>
+          <%}%>
+      </div>
+    </div>
+    <div class="wrapperProductTall">
+      <h3> Nos Produits</h3>
+      <div class="wrapperTypeProductTall">
+        <% for(type of types) {%>
+          <div class="typeProductTall <%= type.Type %>" name="Photo">
+            <a href="/NosProduits#<%= type.Type %>">
+              <%= type.Type %>
+            </a>
+          </div>
+          <%}%>
+      </div>
+    </div>
+  </section>
+  <section id="rdSection">
     <div class="triangle"></div>
     <div class="wrapperEvent">
       <h3>Evenements</h3>
-        <div class="concert event">
-          <div class="photo">
-          </div>
-          <div class="Texte">
-            <h5>Nos concerts</h5>
-
-            <p class="Texte1">Retrouvez toutes les dates de nos evenements musicaux. 
-              La musique au Belzebuth c'est un concert toutes les 2-3 semaines, 
+      <div class="concert event">
+        <div class="photo">
+        </div>
+        <div class="Texte">
+          <h5>Nos concerts</h5>
+          <div class="wrapperText">
+            <p class="Texte1">Retrouvez toutes les dates de nos evenements musicaux.
+              La musique au Belzebuth c'est un concert toutes les 2-3 semaines,
               c'est un musiciens de 17h a 20h tous les jeudi soir</p>
-          
+
             <p>En savoir plus:</p>
           </div>
         </div>
-        <div class="happySong event">
-          <div class="photo">
-          </div>
-          <div class="Texte">
-            <h5>La Happy song</h5>
-            <p class="Texte1">Chaque semaine, viens decouvrir la musique du moment.
-              Cette musique ce n'est pas n'importe quelle musique. Elle t 'apportera avantages et bonheur. 
-              Hésite pas, check là et découvre sont fonctionnement</p>
-            
-              <p>Découvre la maintenant:</p>
-          </div>
+      </div>
+      <div class="happySong event">
+        <div class="photo">
         </div>
-        <div class="produitMoment event">
-          <div class="photo">
-          </div>
-          <div class="Texte">
-            <h5>Les produits du moment</h5>
-            <p class="Texte1">Le Bezlebuth c'est des pressions, mais aussi des bières bouteilles. Du vins d'ici et d'ailleur, des alcools fort, ainsi que des sodas et jus, sans oublier notre gammes de planches.
-              C'est aussi et surtout, des cocktails maison, des shooters, des punchs et planteurs fait par nos soins.
-            </p>
-            <p>Découvre les maintenant:</p>
+        <div class="Texte">
+          <h5>La Happy song</h5>
+          <div class="wrapperText">
+          <p class="Texte1">Chaque semaine, viens decouvrir la musique du moment.
+            Cette musique ce n'est pas n'importe quelle musique. Elle t 'apportera avantages et bonheur.
+            Hésite pas, check là et découvre sont fonctionnement</p>
+
+          <p>Découvre la maintenant:</p>
           </div>
         </div>
       </div>
-</section>
-<section id="thSection">
+      <div class="produitMoment event">
+        <div class="photo">
+        </div>
+        <div class="Texte">
+          <h5>Les produits du moment</h5>
+          <div class="wrapperText">
+          <p class="Texte1">Le Belzebuth c'est des pressions et aussi des bières bouteilles. Des alcools forts et aussi
+            des sodas et du jus. Du vins d'ici et d'ailleur, sans oublier notre gammes de planches.
+            C'est aussi et surtout, des cocktails, shooters, punchs et planteurs maison.
+          </p>
+          <p>Découvre les maintenant:</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="thSection">
     <h3>Un petit commentaire?</h3>
     <div class="wrapperComment">
-        <div class="wrapperInputComment">
-            <form id="commentaire" method="post" action="/">
-                <div class="champ part1">
-                  <label for="Nom">Nom:</label>
-                  <input type="text" id="nom" name="Nom" require minlength="2" maxlength="20" pattern="^[A-Z][a-z]{2,}$" >
-                </div>
-                <div class="champ part2">
-                  <label for="Prenom">Prénom :</label>
-                  <input type="text" id="prenom" name="Prenom" minlength="3" maxlength="20" required pattern="^[A-Z][a-z]{2,}$">
-                </div>
-                <div class="champ part3">
-                  <label for="Email">Email :</label>
-                  <input type="email" id="mail" name="Email" required pattern="^[a-zA-Z0-9_]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$">
-                 </div>
-                 <div class="champ part4">
-                  <label for="Message">Commentaire:</label>
-                  <input type="text" id="Message" name="Message" placeholder=" Votre commentaire tout mignon" textarea=""minlength="20" maxlength="250"required pattern="^[A-Z][a-z]{2,}$">
-                 </div>
-                <input class="bouton" type="submit" value="Envoyer">
-            </form>
-        </div>
-        <div class="wrapperValidCom">
-            <% for (comment of comments) {%>
-                <div class="comment">
-                  <div class="identifiant">
-                  <%= comment.Nom %>
-                  <%= comment.Prenom %>
-                </div>
-                  <div class="message">"<%= comment.Message %>"</div>
-                                    
-                </div>
-              <%}%>
-        </div>
+      <div class="wrapperInputComment">
+        <form id="commentaire" method="post" action="/">
+          <div class="champ part1">
+            <label for="Nom">Nom:</label>
+            <input type="text" id="nom" name="Nom" require minlength="2" maxlength="20" pattern="^[A-Z][a-z]{2,}$">
+          </div>
+          <div class="champ part2">
+            <label for="Prenom">Prénom :</label>
+            <input type="text" id="prenom" name="Prenom" minlength="3" maxlength="20" required
+              pattern="^[A-Z][a-z]{2,}$">
+          </div>
+          <div class="champ part3">
+            <label for="Email">Email :</label>
+            <input type="email" id="mail" name="Email" required pattern="^[a-zA-Z0-9_]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$">
+          </div>
+          <div class="champ part4">
+            <label for="Message">Commentaire:</label>
+            <input type="text" id="Message" name="Message" placeholder=" Votre commentaire tout mignon" textarea=""
+              minlength="20" maxlength="250" required pattern="^[A-Z][a-z]{2,}$">
+          </div>
+          <input class="bouton" type="submit" value="Envoyer">
+        </form>
+      </div>
+      <div class="wrapperValidCom">
+        <% for (comment of comments) {%>
+          <div class="comment">
+            <div class="identifiant">
+              <%= comment.Nom %>
+                <%= comment.Prenom %>
+            </div>
+            <div class="message">"<%= comment.Message %>"</div>
+
+          </div>
+          <%}%>
+      </div>
     </div>
     <div class="wrapperLocation">
-        <h3>Ou nous trouver?</h3>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2721.5031285840055!2d3.1627598158051264!3d46.99109313828553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f04f68bacf0703%3A0x8e5891d1b682ab40!2sLe%20Belz%C3%A9buth!5e0!3m2!1sfr!2sfr!4v1661766013996!5m2!1sfr!2sfr" width="1500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <h3>Où nous trouver?</h3>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2721.5031285840055!2d3.1627598158051264!3d46.99109313828553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f04f68bacf0703%3A0x8e5891d1b682ab40!2sLe%20Belz%C3%A9buth!5e0!3m2!1sfr!2sfr!4v1661766013996!5m2!1sfr!2sfr"
+        width="1500" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-</section>
-<footer>
+  </section>
+  <footer>
     <p>l'abus d'alcool est dangereux pour la santé.</p>
-  <p>design et conception <span>GINOUVEZ Jérôme</span>.</p> 
-  <p onclick="connexion1()">Le Belzebuth</p>
+    <p>design et conception <span>GINOUVEZ Jérôme</span>.</p>
+    <p onclick="connexion1()">Le Belzebuth</p>
 
-</footer>
-<article class="wrapperConnexion">
-  <p class="close" onclick="connexion2()">X</p>
+  </footer>
+  <article class="wrapperConnexion">
+    <p class="close" onclick="connexion2()">X</p>
     <form id="identification" method="post" action="/backOffice">
       <div class="champ1 part1">
         <label for="Username">Username:</label>
-        <input type="text" id="Username" name="Username" required >
+        <input type="text" id="Username" name="Username" required>
       </div>
       <div class="champ1 part2">
         <label for="Password">Password :</label>
@@ -122,66 +147,69 @@
       <input class="bouton" type="submit" value="Login">
     </form>
   </article>
-<article>
-  <div class="wrapperReseau">
-    <p onclick="Reseau1()" class="closeModal">X</p>
+  <article>
+    <div class="wrapperReseau">
+      <p onclick="Reseau1()" class="closeModal">X</p>
 
-    <div class="wrapperBlock">
-      <div class="blockFB block">
-        <div class="HeaderBlock"></div>
+      <div class="wrapperBlock">
+        <div class="blockFB block">
+          <div class="HeaderBlock"></div>
           <i class="fa-brands fa-facebook"></i>
           <a href="https://www.facebook.com/Le-Belz%C3%A9buth-1680882552160603/">
             <p>Notre page Facebook</p>
           </a>
-      </div>
-   
-    
-      <div class="blockInst block">
-        <div class="HeaderBlock"></div>
+        </div>
+
+
+        <div class="blockInst block">
+          <div class="HeaderBlock"></div>
           <i class="fa-brands fa-instagram"></i>
           <a href="https://www.instagram.com/le_belzebuth/">
             <p>Notre instagram</p>
           </a>
-      </div>
-      <div class="blockMail block" onclick="Email()">
-        <div class="HeaderBlock"></div>
+        </div>
+        <div class="blockMail block" onclick="Email()">
+          <div class="HeaderBlock"></div>
           <i class="fa-solid fa-envelope"></i>
           <p>Nous écrire ici</p>
+        </div>
       </div>
     </div>
-  </div>
-      
-</article>
-<article>
-  <div class="wrapperEmail">
-    <p onclick="Email1()" class="closeModal">X</p>
-    <form id="email" action="/email" method="post">
+
+  </article>
+  <article>
+    <div class="wrapperEmail">
+      <p onclick="Email1()" class="closeModal">X</p>
+      <form id="email" action="/email" method="post">
         <div>
-            <label for="Last_name">Nom :</label>
-            <input type="text" id="Last_name" name="Last_name" minlength="2" maxlength="20" pattern="^[A-Z][a-z]{2,}$">
-         </div>
+          <label for="Last_name">Nom :</label>
+          <input type="text" id="Last_name" name="Last_name" minlength="2" maxlength="20" pattern="^[A-Z][a-z]{2,}$">
+        </div>
         <div>
           <label for="Name">Prénom :</label>
           <input type="text" id="Name" name="Name" minlength="3" maxlength="20" required pattern="^[A-Z][a-z]{2,}$">
         </div>
         <div>
-            <label for="E_mail">E-mail:</label>
-            <input type="E_mail" id="E_mail" name="E_mail" required pattern="^[a-zA-Z0-9_]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$">
-            <!-- <span class="error" aria-live="polite"></span> -->
+          <label for="E_mail">E-mail:</label>
+          <input type="E_mail" id="E_mail" name="E_mail" required pattern="^[a-zA-Z0-9_]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$">
+          <!-- <span class="error" aria-live="polite"></span> -->
         </div>
         <div>
           <label for="Numéros">Numéros :</label>
-          <input type="INT" id="Numeros" name="Numeros" minlength="10" maxlength="10" required pattern="^[0-9]{2}-[0-9]{10}$|^[0-9]{3}-[0-9]{10}$|^[0-9]{10}$">
-      </div>
-        <div>
-            <label for="E_Message">Message :</label>
-            <textarea type="test" id="msg" name="E_Message" minlength="20" maxlength="250"required pattern="^[A-Z][a-z]{2,}$"></textarea>
+          <input type="INT" id="Numeros" name="Numeros" minlength="10" maxlength="10" required
+            pattern="^[0-9]{2}-[0-9]{10}$|^[0-9]{3}-[0-9]{10}$|^[0-9]{10}$">
         </div>
-        <button class="bouton" onclick="sendEmail()" value="Envoyer"></button>
-      </form> 
-      
-  </div>
-</article>
-<script src="./js/main2.js"></script> 
-</body>
-</html>
+        <div>
+          <label for="E_Message">Message :</label>
+          <textarea type="test" id="msg" name="E_Message" minlength="20" maxlength="250" required
+            pattern="^[A-Z][a-z]{2,}$"></textarea>
+        </div>
+        <button class="bouton" onclick="sendEmail()" value="Envoyer">Envoyer</button>
+      </form>
+
+    </div>
+  </article>
+  <script src="./js/main2.js"></script>
+  </body>
+
+  </html>

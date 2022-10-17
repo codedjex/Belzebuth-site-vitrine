@@ -5,20 +5,25 @@
 .menuBurger{
     display: block;
     position: fixed;
-    top: 0%;
-    left: 45vw;
+    top: 4%;
+    left: 40vw;
     z-index: 40;
 
     padding: 0px 5px;
-    width: 10vw;
+    width: 20vw;
+    height: 5vh;
     text-align: center;
 
-    background-color: rgba(0, 0, 0, 0.576);
+    /* background-color: rgba(0, 0, 0, 0.576); */
     font-size: 20px;
     font-weight: 100;
     border-radius: 0 0 5px 5px;
     transition: all 0.5s;
 
+    background-image: url('../img/guitare1.svg');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: contain;
 
 }
 .fa-solid{
@@ -85,13 +90,13 @@ background-size: cover;
     
     text-align: center;
 }
-.titleStSection h1{
+h1{
     font-family:'titreBelzebuth';
-    font-size: 27vw;
+    font-size: 22vw;
     background: -webkit-linear-gradient(#eee 15%,rgb(255, 0, 0) 50%, rgb(0, 0, 0));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: glitch 5s ease-out infinite;
+    animation: glitch 5s ease-out infinite alternate-reverse;
 }
 @keyframes glitch {
     0%{
@@ -144,6 +149,10 @@ background-size: cover;
         transform: translateX(0);
         text-shadow: none;
     }
+    79%{
+        transform: translateX(0);
+        text-shadow: none;
+    }
     80%{
         transform: translateX( 0.05em);  
         text-shadow:  0 0 0 #0227f5,
@@ -157,18 +166,20 @@ background-size: cover;
         text-shadow: none;
     }
 }
-.titleStSection h2{
+h2{
 
     font-family: 'SourceSsTxt';
-    font-size: 5vw;
+    font-size: 3vw;
     text-align: center;
     letter-spacing: 15px;
     text-transform: uppercase;
     margin-top: -7px;
 }
 
+
 #ndSection{
     margin-top: -5vh;
+    height: 105vh;
 
     background: rgb(255,0,0);
     background: linear-gradient(0deg, rgba(255,0,0,1) 0%,
@@ -177,7 +188,7 @@ background-size: cover;
      rgba(0,0,0,1) 96%, 
      rgba(0,0,0,0) 100%);
 }
-.wrapperProduct{
+.wrapperProductShort{
     width: 100%;
     height: 100%;
 
@@ -189,7 +200,7 @@ background-size: cover;
     justify-content: space-around;
 }
 
-.wrapperTypeProduct{
+.wrapperTypeProductShort{
     width: 90vw;
     height: 80%;
 
@@ -199,12 +210,12 @@ background-size: cover;
     color: red;
 
 }
-.Photo{
+.typeProductShort{
     width: 100%;
     height: calc(100%/9);
     margin-bottom:1vh ;
 
-background: rgb(255,0,0);
+    background: rgb(255,0,0);
     background: linear-gradient(158deg, rgba(255,0,0,1) 0%, rgba(218,1,1,1) 19%, rgba(47,0,0,1) 60%, rgba(0,0,0,1) 70%, rgba(0,0,0,1) 100%);
     box-shadow: rgba(61, 1, 1, 0.4) 0px 2px 4px, rgba(61, 1, 1, 0.3) 0px 7px 13px -3px, rgba(61, 1, 1, 0.2) 0px -3px 0px inset;
 
@@ -213,13 +224,15 @@ background: rgb(255,0,0);
     justify-content: center;
 
     font-family: 'SourceTxt';
-    font-size: 10vw;
+    font-size: 7.7vw;
     text-transform: uppercase;
     letter-spacing: 6px;
     transform: translateX(100vw);
     transition: all 0.25s;
 } 
-
+.wrapperProductTall{
+    display: none;
+}
 
 #rdSection{
     background-color: rgb(19, 19, 19);
@@ -254,7 +267,7 @@ background: rgb(255,0,0);
 .event p{
     
     font-family: 'SourceTxt';
-    font-size: 5vw;
+    font-size: 16px;
     letter-spacing: 3px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.531);
@@ -293,24 +306,21 @@ background: rgb(255,0,0);
     margin: -30px 0 30px 0;
 
 }
+
 #thSection{
     background-color: rgb(19, 19, 19);
-    height: 140vh;
-
+    height: auto;
 }
 
 .wrapperComment{
     width: 100vw;
-    height: 50vh;
-    margin-bottom: 10vh;
+    height: auto;
 
     display: flex;
     flex-direction: column;
 
     align-items:center;
     justify-content: space-around;
-
-
 }
 .wrapperInputComment{
     width: 100vw;
@@ -330,11 +340,12 @@ background: rgb(255,0,0);
 
     margin: 15px 0 10px 0;
     font-family: 'SourceTxt';
-    font-size: 15px;
+    font-size: 20px;
     letter-spacing: 2px;
 }
 .champ input{
     height: 4vh;
+    width: 50%;
     background-color: rgba(0, 0, 0, 0.336);
     color: red;
     box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
@@ -342,7 +353,7 @@ background: rgb(255,0,0);
 
     margin-right: 15px; 
     
-    font-size: 4vw;
+    font-size: 2.5vw;
 }
 .part4{
     margin-bottom: 7vh;
@@ -353,9 +364,11 @@ background: rgb(255,0,0);
 
 .wrapperValidCom{
     width: 100vw;
+    height: 100%;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
 }
@@ -366,9 +379,10 @@ background: rgb(255,0,0);
     background-color: rgb(206, 14, 14);
     border-radius: 5px 5px 0 5px;
     color: black;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     box-shadow: 0 20px 30px -10px black;
 }
+
 .identifiant{
     font-family: 'SourceTxt';
     font-size: 4vw;
@@ -381,14 +395,17 @@ background: rgb(255,0,0);
     padding: 5px;
     font-family: 'SourceSsTitre';
 }
-
+.wrapperLocation{
+    width: 100%;
+    height: auto;
+}
 iframe{
     width: 100vw;
     height: 30vh;
 }
 footer{
     width: 100vw;
-    height: auto;
+    height: 100px;
     padding: 15px;
 
     background-color: rgb(19, 19, 19);
@@ -526,9 +543,6 @@ footer span{
     padding: 20px;
     transition: transform 0.2s;
 }
-.close:hover{
-    transform: scale(1.1);
-}
 .wrapperEmail{
     position: fixed;
     top: 0;
@@ -583,9 +597,6 @@ footer span{
     box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
     border: 0ch;
 }
-#email input::first-letter, #email textarea::first-letter{
-    text-transform: uppercase;
-}
 #email input:invalid, #email textarea:invalid{
     
         border-color: rgb(255, 0, 0);
@@ -595,22 +606,260 @@ footer span{
 #email input:focus:invalid, #email textarea:focus:invalid{
     outline: none;
   }
-.error {
-    width  : 100%;
-    padding: 0;
-  
-    font-size: 80%;
-    color: white;
-    background-color: #900;
-    border-radius: 0 0 5px 5px;
-  
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  .error.active {
-    padding: 0.3em;
-  }
+
 .open{
     visibility: visible;
     }
+
+/* media queries */
+@media screen and (min-width:700px){
+    .menuBurger{
+        display: none;
+    }
+    #navbar{
+        display: block;
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        z-index: 41;
+    
+        width: 100vw;
+        height: auto;
+
+    
+    }
+    #navbar ul{
+        width: 100%;
+    
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+    #navbar li{
+        font-size: 24px;
+        font-family: 'SourceTxt';
+        font-weight: 600;
+        letter-spacing: 3px;
+
+        color: red;
+    }
+    #navbar li:hover{
+        font-weight: 400;
+        background-color: rgba(255, 0, 0, 0.367);
+        color: rgb(255, 255, 255);
+    }
+    h1{
+        font-size: 162px;
+    }
+    h2{
+        font-size: 29px;
+        margin-top: -20px;
+    }
+    h3{
+        font-size: 8vw;
+    }
+    h4{
+        font-size: 35px;
+    }
+    .typeProductShort{
+        font-size: 53px;
+    }
+    .Photo{
+        font-size: 6vw;
+    }
+    .event{
+        display: flex;
+        flex-direction: row; 
+        height: 23%;
+    }
+    .event p{
+        background-color: transparent;
+    }
+    .photo{
+        width: 40%;
+    }
+    
+    .Texte{
+        background-image: none;
+        background-color: rgba(0, 0, 0, 0.456);
+        width: 60%;
+    }
+
+    .concert h5,.happySong h5,.produitMoment h5{
+        margin-bottom: 20px;
+        font-size: 37px;
+    }
+    .produitMoment h5{
+        text-align: right;
+    }
+    .Texte1{
+        display: block;
+        font-size: 17px;
+    }
+    .Texte p{
+        font-size: 16px;
+        letter-spacing: 1px;
+
+    }
+    .comment{
+        width: 60vw;
+    }
+    .identifiant{
+        font-size: 29px;
+    }
+
+}
+@media screen and (min-width:1024px) {
+    h3{
+        font-size: 81px;
+    }
+    .wrapperProductShort{
+        display: none;
+    }
+    .wrapperProductTall{
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .wrapperTypeProductTall{
+        width: 90%;
+        height: 80%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .typeProductTall{
+        width:calc(100%/8.5);
+        height: 100%;
+    
+        background: rgb(255,0,0);
+        background: linear-gradient(158deg, rgba(255,0,0,1) 0%, rgba(218,1,1,1) 19%, rgba(47,0,0,1) 60%, rgba(0,0,0,1) 70%, rgba(0,0,0,1) 100%);
+        box-shadow: rgba(61, 1, 1, 0.4) 0px 2px 4px, rgba(61, 1, 1, 0.3) 0px 7px 13px -3px, rgba(61, 1, 1, 0.2) 0px -3px 0px inset;
+    
+        display: flex;
+        align-items: center;
+ 
+        font-family: 'SourceTxt';
+        font-size: 55px;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        /* transform: translateX(100vw);*/
+        transition: all 0.25s;
+    }
+    .typeProductTall:hover{
+        transform: scale(1.05);
+    }
+    .event{
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        
+    }
+    .photo{
+        width: 0;
+    }
+    .Texte{
+        height: 100%;
+        width: 200%;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        transform: translate(50%);
+        transition: transform 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .Texte:hover{
+        transform: translate(0%);
+    }
+    .Texte h5{
+        text-align: center;
+
+        width: 100%;
+        height: 20%;
+
+        font-size:45px ;
+    }
+    .wrapperText{
+
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        
+    }
+    .wrapperComment{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        background-image: url(../img/logo-belzebuth-blanc.png);
+        background-repeat: no-repeat;
+        background-position: 50% 53%;
+        background-size: 55%;
+    }
+    .wrapperInputComment{
+        width: 60vw;
+        
+        padding: 5px;
+
+        border-right: 2px solid white;
+    }
+    .wrapperValidCom{
+        width: 35vw;
+        height: 50vh;
+
+        display: block;
+        
+
+    }
+    .champ{
+        width: 100%;
+    }
+    .champ input{
+        font-size:20px;
+        background-color: rgba(255, 255, 255, 0.605);
+    }
+    .champ input:focus{
+        background-color: rgb(245, 66, 66);
+        border: 0px;
+    }
+    ::placeholder{
+        color: black;
+    }
+    #commentaire{
+        width: 100%;
+    }
+    .bouton{
+        background-color: rgba(0, 0, 0, 0.51);
+        transition: all 0.5s;
+    }
+    .bouton:hover{
+        transform: scale(1.05);
+        background-color: #ff0825;
+        font-weight: 800;
+    }
+    .comment{
+        background-color: rgba(255, 0, 0, 0.673);
+        width: 100%;
+
+        margin: 10px 0;
+    }
+    iframe{
+        margin: 0 15vw;
+        width: 70vw;
+    }
+    
+}

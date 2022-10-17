@@ -2,7 +2,7 @@
 @import 'ressources.css';
 
 h1{
-    width: 100vw;
+    font-size: 12vw;
     text-align: center;
     color: red;
 }

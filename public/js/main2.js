@@ -6,11 +6,14 @@ function descente(){
 const TextT = document.querySelector('.titleStSection');
 
 window.addEventListener('scroll', ()=>{
-    
-        TextT.style.top = window.scrollY/3 + "px";
-    })
+    if(window.scrollY<548){
+        TextT.style.top = window.scrollY/3.3 + "px";
+    }else{
+        TextT.style.top = TextT.style.top;
+    }
+})
 
-const TexTypeWrapper = document.querySelector('.wrapperTypeProduct')
+const TexTypeWrapper = document.querySelector('.wrapperTypeProductShort')
 const TextType = document.querySelector('.whisky');
 const TextType1 = document.querySelector('.vodka');
 const TextType2 = document.querySelector('.rhum');

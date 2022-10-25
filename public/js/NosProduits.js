@@ -17,3 +17,8 @@ function deplier1(){
     document.getElementsByClassName('open')[0].setAttribute("class","containerProduit");
 
 }
+function descente(){
+    document.querySelector('.Menu').classList.toggle('descente')
+    document.querySelector('.menuBurger').classList.toggle('descente1')
+
+}

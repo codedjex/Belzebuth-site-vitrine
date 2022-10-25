@@ -14,22 +14,17 @@
     height: 5vh;
     text-align: center;
 
-    /* background-color: rgba(0, 0, 0, 0.576); */
     font-size: 20px;
     font-weight: 100;
     border-radius: 0 0 5px 5px;
     transition: all 0.5s;
 
-    background-image: url('../img/guitare1.svg');
+    background-image: url('../img/menu-burger-noir.svg');
     background-position:center;
     background-repeat: no-repeat;
     background-size: contain;
+}
 
-}
-.fa-solid{
-    text-align: center;
-    color: rgba(255, 0, 0, 0.478);
-}
 .Menu{
     display: block;
     position: fixed;
@@ -775,7 +770,7 @@ footer span{
         align-items: center;
 
         transform: translate(50%);
-        transition: transform 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .Texte:hover{
         transform: translate(0%);
@@ -805,7 +800,7 @@ footer span{
         align-items: center;
         justify-content: space-around;
 
-        background-image: url(../img/logo-belzebuth-blanc.png);
+        background-image: url(../img/belzebuth-logo.png);
         background-repeat: no-repeat;
         background-position: 50% 53%;
         background-size: 55%;

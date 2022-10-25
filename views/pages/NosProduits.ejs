@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="./css/styleNosProduits.css" type="text/css"> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styleNosProduits.css" type="text/css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <title>Nos Produits</title>
 </head>
+
 <body>
     <nav id="navbar">
-       <a href="/index"> <img class="Logo" src="../img/logo-Belzebuth.png" alt="logo belzebuth"></a>
+        <a href="/index"> <img class="Logo" src="../img/belzebuth-logo.png" alt="logo belzebuth"></a>
         <% for(type of types) {%>
             <div class="nodeProduct">
-                <a href="#<%= type.Type %>"><p><%= type.Type %></p></a>
+                <a href="#<%= type.Type %>">
+                    <p>
+                        <%= type.Type %>
+                    </p>
+                </a>
             </div>
-        <%}%>
+            <%}%>
     </nav>
+    <div class="menuBurger" onclick="descente()"></div>
+    <div class="Menu">
+        <ul>
+            <a href="/index">
+                <li>Belzebuth</li>
+            </a>
+            <% for(type of types) {%>
+                <li class="nodeProduct">
+                    <a href="#<%= type.Type %>">
+                        <p>
+                            <%= type.Type %>
+                        </p>
+                    </a>
+                </li>
+                <%}%>
+        </ul>
+    </div>
     <% for(type of types) {%>
         <article id="<%=type.Type %>" class="<%= products.ID_Product %>">
-            <h2 onclick="deplier('<%=type.ID_Product %>')"><%= type.Type %></h2>
+            <h3 onclick="deplier('<%=type.ID_Product %>')">
+                <%= type.Type %>
+            </h3>
             <img src="../img/<%= type.Picture %>" alt="photo de <%= type.Type %>">
 
             <nav class="containerProduit">
@@ -24,24 +52,34 @@
                 <div class="BlockProduit">
                     <div class="block1" id="<%= type.ID_Product %>">
                         <div class="blockTitre">
-                            <h4><%= type.Type %></h4>
-                            <p><%= type.Descriptif %></p>
+                            <h3>
+                                <%= type.Type %>
+                            </h3>
+                            <p>
+                                <%= type.Descriptif %>
+                            </p>
                         </div>
                     </div>
                     <div class='block2'>
-                        
+
                     </div>
-    
-    
-                    </div>
-                    
+
+
+                </div>
+
                 </div>
             </nav>
 
 
         </article>
         <%}%>
-        
-  <script src="./js/NosProduits.js"></script>
+            <footer>
+                <p>l'abus d'alcool est dangereux pour la santé.</p>
+                <p>design et conception <span>GINOUVEZ Jérôme</span>.</p>
+                <p onclick="connexion1()">Le Belzebuth</p>
+
+            </footer>
+            <script src="./js/NosProduits.js"></script>
 </body>
+
 </html>

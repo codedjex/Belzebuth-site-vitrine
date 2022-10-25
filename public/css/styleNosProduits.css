@@ -18,10 +18,20 @@ nav{
 }
 .Logo
 {
-    height: 12vh;
-    width: auto;
+    height: 18vh;
+    width: 10vw;
     
 }
+
+.nodeProduct p {
+font-family: 'SourceTxt';
+font-weight: 100;
+letter-spacing: 4px;
+}
+.Menu{
+    display: none;
+}
+
 article{
     width: 100vw;
     height: 70vh;
@@ -34,10 +44,10 @@ article img{
     width: 100%;
     height: 120%;
 }
-h2{
+ article h3{
     text-transform: uppercase;
     font-size: 150px;
-    font-family:'SourceTxt';
+    font-family:'h3';
 
     padding: 12vh;
 
@@ -65,7 +75,7 @@ h2{
 }
 .containerProduit> p{
     position: absolute;
-    top: 5vh;
+    top: 0vh;
     left: 5vw;
     padding: 15px;
 
@@ -77,8 +87,8 @@ h2{
     flex-direction: row;
     
     width: 90vw;
-    height: 70vh;
-    margin: 15vh 5vw;
+    height: 80vh;
+    margin: 10vh 5vw;
 
     background: white;
     color: black;
@@ -88,32 +98,38 @@ h2{
     flex-direction: column;
     align-items: center;
 
-    width: 20vw;
+    width: 22%;
     height: 100%;
 
     border-right: 1px solid black;
 }
-.blockTitre >h4{
-    font-size: 35px;
-    font-family: 'SourceSsTitre';
-    text-align: center;
-    text-transform: uppercase;
-    padding-bottom: 7vh;
-    color: black;
-}
-.blockTitre >p{
-    padding: 5px;
-
-    font-size: 20px;
+.blockTitre{
     font-family: 'SourceTxt';
-    font-weight: 600;
-    letter-spacing: 5px;
+width: 100%;
+height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.blockTitre h3{
+    font-size: 30px;
+    padding: 10px;
+
+    position: static;
     text-align: center;
-    color: black;
+    width: 100%;
+    height: 15%;
+
+}
+.blockTitre p {
+    font-size: 20px;
+width: 100%;
+height: 80%;
 
 }
 .block2{
-width: 70vw;
+width: 70%;
 height: 100%;
 
 display: flex;
@@ -123,16 +139,135 @@ align-items: center;
 justify-content: space-around;
 
 box-sizing: border-box;
-border: 2px solid black;
+
 }
 .blockListeProduit > h4{
-font-family: 'SourceSsTitre';
+font-family:'h3';
+font-size: 15px;
 font-weight: 600;
 text-align: center;
-border-bottom: 1px solid black;
+text-decoration: underline;
 
 }
 .blockListeProduit > p{
+    width: 100%;
+    text-align: center;
+    font-family: 'SourceTxt';
+    padding: 5px;
+    font-size: 13px;
+    color: black;
+}
+footer{
+    width: 100vw;
+    height: 100px;
     padding: 15px;
+
+    background-color: rgb(19, 19, 19);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+footer span{
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 700px){
+    #navbar{
+        display: none;
+    }
+    .menuBurger{
+        display: block;
+        position: fixed;
+        top: 4%;
+        left: 40vw;
+        z-index: 40;
+    
+        padding: 0px 5px;
+        width: 20vw;
+        height: 5vh;
+        text-align: center;
+    
+        font-size: 20px;
+        font-weight: 100;
+        border-radius: 0 0 5px 5px;
+        transition: all 0.5s;
+    
+        background-image: url('../img/menu-burger-blanc.svg');
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .Menu{
+        display: block;
+        position: fixed;
+        top: 0%;
+        z-index: 10;
+        
+        width: 100vw;
+        height: 40vh;
+
+        transform: translateY(-40vh);
+        transition: all 0.5s;
+
+        background-color: rgba(0, 0, 0, 0.576);
+
+
+
+    }
+    .Menu ul{
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        text-transform: capitalize;
+    }
+    .Menu li{
+        
+        color: rgb(253, 253, 253);
+        font-size: 20px;
+        font-family: 'SourceTxt';
+    }
+    .Menu li:hover{
+        transform: scale(1.01);
+    }
+    .descente{
+        transform: translateY(0vh);
+        transition: all 0.5s;
+
+    }
+    .descente1{
+        transform: translateY(40vh);
+        transition: all 0.5s;
+
+    }
+    article{
+        height: 55vh;
+    }
+    article > h3{
+        font-size: 80px;
+        width: 100vw;
+        text-align: center;
+
+        padding: 40px 0;
+    }
+    .blockTitre h3{
+        font-size: 3vw;
+    }
+    .blockTitre p {
+        font-size: 2.5vw;
+        font-weight: 600;
+        padding: 2px;
+    }
+
+    
 }
 

@@ -163,8 +163,11 @@ app.post('/NosProduits/recuperer',(request, response, next)=>{
     })
 
 app.get('/backOffice', (req, res, next)=>{
-        res.render('pages/backOffice')
-    })
+    let user = req.session.user;
+    if (user){
+        res.render('pages/backOffice', {opp:req.session.opp, name: user.Username});
+    }})
+
 // app.get('/index', (req, res, next)=>{
 //         let ProduitType = require ('./models/type')
 //     ProduitType.allProductType(function (type)
@@ -176,8 +179,8 @@ app.get('/backOffice', (req, res, next)=>{
 
 
 app.get('/backOffice/Control', (req, res, next)=>{
-        let user = req.session.user;
-        if(user){
+    let user = req.session.user;
+    if(user){
             let Message = require ('./models/message')
         Message.all(function (comment)
         {

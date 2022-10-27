@@ -6,10 +6,7 @@ class ProduitType{
           if (err) throw err
           // cb = callback
           callback(rows)
-        }
-        )  
-      }
-      
+        } )} 
 }
 
 module.exports = ProduitType

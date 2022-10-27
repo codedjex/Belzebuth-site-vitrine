@@ -19,6 +19,8 @@ app
 .use(bodyParser.urlencoded({extended: false}))
 .use(bodyParser.json())
 .use(session({
+    secure: true,
+    httpOnly: true,
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
@@ -168,15 +170,6 @@ app.get('/backOffice', (req, res, next)=>{
         res.render('pages/backOffice', {opp:req.session.opp, name: user.Username});
     }})
 
-// app.get('/index', (req, res, next)=>{
-//         let ProduitType = require ('./models/type')
-//     ProduitType.allProductType(function (type)
-//     {
-//         res.render('pages/index2',{types: type})
-
-//     })
-// })
-
 
 app.get('/backOffice/Control', (req, res, next)=>{
     let user = req.session.user;
@@ -193,7 +186,13 @@ app.get('/backOffice/Control', (req, res, next)=>{
         let Produit = require ('./models/product')
         Produit.allProduct(function (product)
         {
-            res.render('pages/backOfficeControl',{opp:req.session.opp, name: user.Username, comments: comment, messageries: messagerie, products: product, users: user});
+            res.render('pages/backOfficeControl',
+            {opp:req.session.opp, 
+            name: user.Username,
+            comments: comment, 
+            messageries: messagerie, 
+            products: product, 
+            users: user});
             return;
         })
     })

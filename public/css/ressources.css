@@ -72,7 +72,7 @@ h5{
     font-family: 'titreBelzebuth';
     src: url('../font/Ravenholm-Inline-Demo.otf');
 }
-/* sous-titre */
+/* titre-section */
 @font-face {
     font-family: 'h3';
     src: url("../font/Anton-Regular.ttf");
@@ -87,4 +87,5 @@ h5{
     font-family: 'SourceTxt';
     src: url('../font/SourceSansPro-ExtraLight.ttf');
 }
+
 

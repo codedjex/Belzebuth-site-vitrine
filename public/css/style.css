@@ -16,7 +16,7 @@
 
     font-size: 20px;
     font-weight: 100;
-    border-radius: 0 0 5px 5px;
+    filter: drop-shadow(0 20px 30px rgba(255, 255, 255, 0.612));
     transition: all 0.5s;
 
     background-image: url('../img/menu-burger-noir.svg');
@@ -59,7 +59,7 @@
 
 }
 .descente1{
-    transform: translateY(40vh);
+    transform: translateY(40vh) rotateZ(180deg);
     transition: all 0.5s;
 
 }
@@ -163,7 +163,7 @@ h1{
 }
 h2{
 
-    font-family: 'SourceSsTxt';
+    font-family: 'SourceTxt';
     font-size: 3vw;
     text-align: center;
     letter-spacing: 15px;
@@ -316,6 +316,11 @@ h2{
 
     align-items:center;
     justify-content: space-around;
+
+    background-image: url(../img/belzebuth-logo-small.png);
+        background-repeat: no-repeat;
+        background-position: 50% 53%;
+        background-size: 55%;
 }
 .wrapperInputComment{
     width: 100vw;
@@ -388,7 +393,8 @@ h2{
 }
 .message{
     padding: 5px;
-    font-family: 'SourceSsTitre';
+    font-family:'SourceSsTitre';
+
 }
 .wrapperLocation{
     width: 100%;
@@ -851,6 +857,10 @@ footer span{
         width: 100%;
 
         margin: 10px 0;
+    }
+    .message{
+
+        font-size: 30px;
     }
     iframe{
         margin: 0 15vw;

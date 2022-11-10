@@ -16,7 +16,8 @@
             
         </div>
     </header>
-    <h1>Bienvenue sur le Back-Office du bar le Belzebuth</h1>
+
+    <h1>Espace de gestion des stocks et contacts</h1>
     <% if (locals.flash && locals.flash.success){ %>
         <div> <%= flash.success %> </div>
         <% } %>
@@ -38,7 +39,6 @@
                             <div id="container1" class="div">
                                 <table>
                                     <tr class="TitreTableau">
-                                        <td>Nom</td>
                                         <td>Prénom</td>
                                         <td>Mail</td>
                                         <td>Message</td>
@@ -46,20 +46,19 @@
                                         <td>Action</td>
                                     </tr>
                                     <div class="testdel"></div>
-                                        <% for(messagerie of messageries) {%>
-                                    <tr id="containerDonnees">
-                                        
-                                        <td class="<%= messagerie.ID %>" data-id="<%= messagerie.ID %>"><%= messagerie.Last_name %></td>
-                                        <td class="<%= messagerie.ID %>"><%= messagerie.Name %></td>
-                                        <td class="<%= messagerie.ID %>"><%= messagerie.E_mail %></td>
-                                        <td class="<%= messagerie.ID %>"><%= messagerie.E_Message %></td>
-                                        <td class="<%= messagerie.ID %>"><%= messagerie.Numeros %></td>
-                                        <td class="<%= messagerie.ID %>">
-                                            <button onclick="supprimerEmail(this, '<%= messagerie.ID %>')" class="delete" data-id="<%= messagerie.ID %>">Supprimer</button>
-                                            <button class="delete">Repondre</button>
-                                        </td>
-                                        <%}%>
-                                    </tr>
+        <% for(messagerie of messageries) {%>
+    <tr id="containerDonnees">
+        <td class="<%= messagerie.ID %>"><%= messagerie.Name %></td>
+        <td class="<%= messagerie.ID %>"><%= messagerie.E_mail %></td>
+        <td class="<%= messagerie.ID %>"><%= messagerie.E_Message %></td>
+        <td class="<%= messagerie.ID %>"><%= messagerie.Numeros %></td>
+        <td class="<%= messagerie.ID %>">
+            <button onclick="supprimerEmail(this, '<%= messagerie.ID %>')"
+                 class="delete" data-id="<%= messagerie.ID %>">Supprimer</button>
+            <button class="delete">Repondre</button>
+        </td>
+    <%}%>
+</tr>
                                 </table>
                             </div>
                         </div>
@@ -77,7 +76,7 @@
                                     </tr>
                                     <% for(comment of comments) {%>
                                     <tr>
-                                        <td><%= comment.ID %></td>
+                            
                                         <td><%= comment.Nom %></td>
                                         <td><%= comment.Prenom %></td>
                                         <td><%= comment.Email %></td>

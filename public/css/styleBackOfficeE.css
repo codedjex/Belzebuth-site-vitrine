@@ -1,4 +1,4 @@
-@import 'ressources.css';
+    @import 'ressources.css';
 h1{
     width: 100vw;
 
@@ -9,6 +9,8 @@ h1{
 }
 
 .containerboutton{
+    width: 100vw;
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -17,15 +19,8 @@ h1{
     margin-bottom: 5vh;
     font-family:'SourceTxt';
 }
-.touche {
-    width: 33%;
-    height: 6vh;
-
-    text-align: center;
-padding: 5px;
-
-    cursor: pointer;
-
+.touche{
+    font-size: 4vw;
 }
 .containerBlock{
     position: relative;
@@ -44,10 +39,18 @@ padding: 5px;
     text-decoration: underline;
 
 }
-td{
-    width: calc(100%/7);
-    padding: 20px;
+table{
+    width: 90vw;
+    border: 2px solid red;
 }
+td{
+    width: calc(100%/6);
+    padding: 20px;
+
+    font-size: 2.5vw;
+    border: 2px solid;
+}
+
 button{
     color:black
 }
@@ -86,6 +89,8 @@ button{
     padding: 20px;
     text-align: center;
     border: 1px solid;
+
+    font-size: 2.5vw;
 
     cursor: pointer;
 }

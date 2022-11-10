@@ -29,7 +29,7 @@ app
     }
 }))
 .use(require('./middleware/flash'))
-
+// envoie commentaire
 app.post('/', (request, response) =>{
 
     if(request.body == undefined || request.body ===''){
@@ -45,7 +45,7 @@ app.post('/', (request, response) =>{
 })
 
 
-
+// enovi mail 
 app.post('/email', (request, response) =>{
 
     if(request.body == undefined){
@@ -59,6 +59,7 @@ app.post('/email', (request, response) =>{
         })
     }
 })
+// ajout donnée backoffice
 app.post('/backOffice/AddProduct', (request, response) =>{
 
     if(request.body == undefined){
@@ -73,7 +74,7 @@ app.post('/backOffice/AddProduct', (request, response) =>{
     }
 })
 
-
+// suppression données backoffice
 app.post('/backOffice/delete',(request, response, next)=>{
     let Message = require ('./models/message')
     Message.deleteCom(request.body.com1, function (result){
@@ -102,7 +103,7 @@ app.post('/backOffice/delete',(request, response, next)=>{
         });
         })
 
-
+// affichage données index
 app.get('/index', (request, response) => {
     let ProduitType = require ('./models/type')
     ProduitType.allProductType(function (type)
@@ -114,6 +115,7 @@ app.get('/index', (request, response) => {
     
 })
     })})
+// autorisation acces utilisateur au back office
 app.post('/backOffice', (req, res, next) => {
 
     user.loginUser(req.body.Username, req.body.Password, function(result) {
@@ -128,7 +130,7 @@ app.post('/backOffice', (req, res, next) => {
  })
 });
 
-
+// création nouvel utilisateur
 app.post('/registry', (req, res, next) => {
     let userInput = {
         Username: req.body.Username,
@@ -157,20 +159,21 @@ app.get('/NosProduits', (request, response, next) => {
         })
     })
 })
+// affichage produit au clic 
 app.post('/NosProduits/recuperer',(request, response, next)=>{
     let Produit = require ('./models/product')
     Produit.allProduct1(request.body.AllProduit, function (result){
         response.json(result);
     });
     })
-
+// affichage backoffice accueil
 app.get('/backOffice', (req, res, next)=>{
     let user = req.session.user;
     if (user){
         res.render('pages/backOffice', {opp:req.session.opp, name: user.Username});
     }})
 
-
+// affichage  données backOffice
 app.get('/backOffice/Control', (req, res, next)=>{
     let user = req.session.user;
     if(user){
@@ -187,17 +190,13 @@ app.get('/backOffice/Control', (req, res, next)=>{
         Produit.allProduct(function (product)
         {
             res.render('pages/backOfficeControl',
-            {opp:req.session.opp, 
-            name: user.Username,
-            comments: comment, 
-            messageries: messagerie, 
-            products: product, 
-            users: user});
+            {opp:req.session.opp, name: user.Username, comments: comment, messageries: messagerie, products: product, users: user});
             return;
         })
     })
 })})
 }})
+// Ajout de produit
 app.post("/backOffice/ModifProduct", (req, res) => {
     let id = req.body.ID === "" ? null : req.body.ID;
     let titre = req.body.Title;
@@ -215,6 +214,7 @@ app.post("/backOffice/ModifProduct", (req, res) => {
         res.redirect('/backOffice/Control');
         });
     })
+    // validation Commentaire
     app.post("/backOffice/AddCom", (req, res) => {
         let idC = req.body.ID === "" ? null : req.body.ID;
         let validerC = req.body.valider;

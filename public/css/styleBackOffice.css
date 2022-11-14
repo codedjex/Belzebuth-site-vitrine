@@ -2,6 +2,7 @@
 @import 'ressources.css';
 
 h1{
+    font-family: 'SourceSsTitre';
     font-size: 70px;
     text-align: center;
     color: red;

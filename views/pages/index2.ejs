@@ -97,12 +97,13 @@
           </div>
           <div class="champ part3">
             <label for="Email">Email :</label>
-            <input type="email" id="mail" name="Email" required pattern="^[a-zA-Z0-9_]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$">
+            <input type="email" id="mail" name="Email" required pattern="[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})">
           </div>
           <div class="champ part4">
             <label for="Message">Commentaire:</label>
-            <input type="text" id="Message" name="Message" placeholder=" Votre commentaire tout mignon" textarea=""
-              minlength="20" maxlength="250" required pattern="^[A-Z][a-z]{2,}$">
+            <textarea type="text" id="Message" name="Message" placeholder=" Votre commentaire tout mignon"
+            minlength="20" maxlength="250" required
+            pattern="^[A-Z][a-z]{2,}$"></textarea>
           </div>
           <input class="bouton" type="submit" value="Envoyer">
         </form>
@@ -194,7 +195,6 @@
         <div>
           <label for="E_mail">E-mail:</label>
           <input type="E_mail" id="E_mail" name="E_mail" required pattern="^[a-zA-Z0-9_]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$">
-          <!-- <span class="error" aria-live="polite"></span> -->
         </div>
         <div>
           <label for="Numéros">Numéros :</label>
